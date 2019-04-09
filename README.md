@@ -1,5 +1,5 @@
 # vscode-web
-VScode web in docker based on github.com/codercom/code-server for Golang programming
+VScode web in docker based on https://github.com/codercom/code-server for Golang programming
 
 Image built with golang and go tools for golang programming
 
