@@ -23,4 +23,6 @@ RUN export PATH=$PATH:/usr/local/go/bin && \
 	github.com/stamblerre/gocode \
 	github.com/rogpeppe/godef \
 	github.com/sqs/goreturns \
-	golang.org/x/lint/golint
+	golang.org/x/lint/golint \
+	github.com/stamblerre/gocode \
+	github.com/uudashr/gopkgs/cmd/gopkgs
