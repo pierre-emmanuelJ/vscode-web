@@ -3,6 +3,11 @@ VScode web in docker based on https://github.com/codercom/code-server for Golang
 
 Image built with golang and go tools for golang programming
 
+Create folder to make persitant vscode config and plugins...
+```
+$ mkdir -p $HOME/.local/share/code-serve
+```
+
 Run it with docker
 ```Shell
 $ docker run \
