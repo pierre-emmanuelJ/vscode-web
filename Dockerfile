@@ -1,12 +1,12 @@
-FROM codercom/code-server:1.1156-vsc1.33.1
+FROM codercom/code-server:2.1692-vsc1.39.2
 
 USER root
 
 RUN apt-get install -y \
 	wget
 
-RUN wget https://dl.google.com/go/go1.13.1.linux-amd64.tar.gz \
-&& tar -C /usr/local -xzf go1.13.1.linux-amd64.tar.gz && rm go1.13.1.linux-amd64.tar.gz
+RUN wget https://dl.google.com/go/go1.13.4.linux-amd64.tar.gz \
+&& tar -C /usr/local -xzf go1.13.4.linux-amd64.tar.gz && rm go1.13.4.linux-amd64.tar.gz
 
 USER coder
 
