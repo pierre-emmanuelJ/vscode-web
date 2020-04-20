@@ -5,22 +5,25 @@ Image built with golang and go tools for golang programming
 
 Create folder to make persitant vscode config and plugins...
 ```
-$ mkdir -p $HOME/.local/share/code-serve
+$ mkdir -p "$HOME/.local/share/code-server/extensions"
 ```
 
 Run it with docker
 ```Shell
-$ docker run --name vscode \
-    --rm  \
-    -it \
-    -p 8443:8443 \
-    -v "${PWD}:/home/coder/project" \
-    -v "${HOME}/.local/share/code-serve:/home/coder/.local/share/code-server" \
- #   -e "GO111MODULE=off" \ set this variable if you want to disable Go module
-    -v ${GOPATH}:/home/coder/go  \
-    pierro777/vscode:latest \
-    --allow-http  \
-    --password password
+$ docker run \
+            -d \
+            --name vscode \
+            --rm  \
+            -it \
+            -p 8080:8080 \
+            -u "$(id -u):$(id -g)" \
+            -v "${PWD}:/home/coder/project" \
+            -v "${HOME}/.local/share/code-server:/home/coder/.local/share/code-server"  \
+            -v "${HOME}/.cache/code-server:/home/coder/.cache/code-server" \
+            -e ${GO111MODULE} \
+	        -e "PASSWORD=${YOUR_PASSWORD}" \
+            -v ${GOPATH}:/home/coder/go \
+            pierro777/vscode:3.1.1
 ```
 
 To make plugin vscode configuration and plugins installation persistant:
