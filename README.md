@@ -59,8 +59,8 @@ docker run \
             -d \
             --name vscode \
             -it \
-	    --rm \
-	    -u "$(id -u):$(id -g)" \
+            --rm \
+            -u "$(id -u):$(id -g)" \
             --label traefik.frontend.rule=Host:${YOUR_DOMAIN_NAME}  \
             --label traefik.enable=true \
             --network traefik_default \
