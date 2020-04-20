@@ -29,7 +29,7 @@ $ docker run \
             -v "${HOME}/.local/share/code-server:/home/coder/.local/share/code-server"  \
             -v "${HOME}/.cache/code-server:/home/coder/.cache/code-server" \
             -e ${GO111MODULE} \
-	    -e "PASSWORD=${VSCODE_PASSWORD}" \
+            -e "PASSWORD=${VSCODE_PASSWORD}" \
             -v ${GOPATH}:/home/coder/go \
             pierro777/vscode:3.1.1
 ```
@@ -68,7 +68,7 @@ docker run \
             -v "${HOME}/.local/share/code-server:/home/coder/.local/share/code-server"  \
             -v "${HOME}/.cache/code-server:/home/coder/.cache/code-server" \
             -e ${GO111MODULE} \
-	    -e "PASSWORD=${VSCODE_PASSWORD}" \
+            -e "PASSWORD=${VSCODE_PASSWORD}" \
             -v ${GOPATH}:/home/coder/go \
             pierro777/vscode:3.1.1
 ```
