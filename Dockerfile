@@ -2,11 +2,16 @@ FROM codercom/code-server:3.1.1
 
 USER root
 
-RUN apt-get update -y && apt-get install -y \
-	wget
+WORKDIR /repo
+
+COPY . .
+
+RUN ./package.sh
 
 RUN wget https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz \
 && tar -C /usr/local -xzf go1.14.2.linux-amd64.tar.gz && rm go1.14.2.linux-amd64.tar.gz
+
+RUN rm -rf /repo
 
 USER coder
 
@@ -26,3 +31,4 @@ RUN export PATH=$PATH:/usr/local/go/bin && \
 	github.com/rogpeppe/godef \
 	github.com/sqs/goreturns \
 	golang.org/x/lint/golint
+
