@@ -8,9 +8,12 @@ PACKAGES=(
   python-pip
   python3
   python3-pip
+  openjdk-11-jdk
   flake8
   coreutils
   gcc
+  rlwrap
+  leiningen
 )
 
 if [ -x "$(command -v apt-get)" ]; then
@@ -29,6 +32,13 @@ nvm install 12.16
 
 pip install black
 
-wget https://github.com/koalaman/shellcheck/releases/download/v0.7.1/shellcheck-v0.7.1.linux.x86_64.tar.xz
-tar -xvf shellcheck-v0.7.1.linux.x86_64.tar.xz
-cd shellcheck-v0.7.1 && mv shellcheck /usr/local/bin/ && cd ..
+SHELLCHECK_VERSION=v0.7.1
+wget https://github.com/koalaman/shellcheck/releases/download/$SHELLCHECK_VERSION/shellcheck-$SHELLCHECK_VERSION.linux.x86_64.tar.xz
+tar -xvf shellcheck-$SHELLCHECK_VERSION.linux.x86_64.tar.xz
+cd shellcheck-$SHELLCHECK_VERSION && mv shellcheck /usr/local/bin/ && cd ..
+
+CLJ_VERSION=1.10.1.763
+curl -O https://download.clojure.org/install/linux-install-$CLJ_VERSION.sh
+chmod +x linux-install-$CLJ_VERSION.sh
+sudo ./linux-install-$CLJ_VERSION.sh
+rm -f ./linux-install-$CLJ_VERSION.sh

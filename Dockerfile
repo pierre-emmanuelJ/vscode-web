@@ -1,4 +1,4 @@
-FROM codercom/code-server:3.4.0
+FROM codercom/code-server:3.8.0
 
 USER root
 
@@ -8,10 +8,16 @@ COPY . .
 
 RUN ./package.sh
 
-RUN wget https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz \
-&& tar -C /usr/local -xzf go1.14.2.linux-amd64.tar.gz && rm go1.14.2.linux-amd64.tar.gz
+RUN wget https://dl.google.com/go/go1.15.6.linux-amd64.tar.gz \
+&& tar -C /usr/local -xzf go1.15.6.linux-amd64.tar.gz && rm go1.15.6.linux-amd64.tar.gz
 
 RUN rm -rf /repo
+
+RUN set -xe \
+    && apt-get update -q \
+    && apt-get autoremove -y \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 USER coder
 
