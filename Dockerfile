@@ -21,6 +21,8 @@ RUN set -xe \
 
 USER coder
 
+RUN echo 'eval "$(direnv hook bash)"' >> /home/coder/.bashrc
+
 RUN echo "export GOROOT=/usr/local/bin" >> /home/coder/.bashrc
 RUN mkdir /home/coder/go && echo "export GOPATH=/home/coder/go" >> /home/coder/.bashrc
 

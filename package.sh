@@ -14,6 +14,7 @@ PACKAGES=(
   gcc
   rlwrap
   leiningen
+  direnv
 )
 
 if [ -x "$(command -v apt-get)" ]; then
